@@ -9,13 +9,32 @@ export class FleetDataService {
     this.errors = [];
   }
 
+  getCarByLicense(license) {
+    return this.cars.find(car => {
+      return car.license === license;
+    });
+  }
+
+  getCarsSortedByLicense() {
+    return this.cars.sort((car1, car2) => {
+      if (car1.license < car2.license) {
+        return -1;
+      }
+      if (car1.license > car2.license) {
+        return 1;
+      }
+
+      return 0;
+    });
+  }
+
   loadData(fleet) {
     for (let data of fleet) {
       switch (data.type) {
         case "car":
           if (this.validateCorrectCarData(data)) {
             const car = this.loadCar(data);
-            if(car){
+            if (car) {
               this.cars.push(car);
             }
           } else {
@@ -26,7 +45,7 @@ export class FleetDataService {
         case "drone":
           if (this.validateCorrectDroneData(data)) {
             const drone = this.loadDrone(data);
-            if(drone){
+            if (drone) {
               this.drones.push(drone);
             }
           } else {
