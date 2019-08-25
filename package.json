@@ -1,0 +1,20 @@
+{
+  "name": "vroomvroom",
+  "version": "1.0.0",
+  "description": "object oriented JS using ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "author": "Charissa Johnson",
+  "license": "ISC",
+  "dependencies": {
+    "es6-module-loader": "^0.17.11",
+    "express": "^4.17.1",
+    "traceur": "0.0.111"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
