@@ -1,32 +1,18 @@
 class Drone {
   constructor(id, name) {
-    this.id = id;
-    this.name = name;
+    this._id = id;
   }
 
-  static getCompany() {
-    console.log("in getCompany");
+  get id(){
+    return this._id;
   }
 
-  fly() {
-    console.log(`Drone ${this.id} is flying`);
+  set id(value){
+    this._id = value;
   }
 }
 
-// Static properties
-Drone.maxHeight = 2000;
+let drone = new Drone("A123");
 
-
-let drone = new Drone("A123", "Flyer");
-let drone2 = new Drone("B123", "DroneB");
-console.log(drone instanceof Drone);
-console.log(drone.id);
-console.log(drone.name);
-console.log(drone2.id);
-console.log(drone2.name);
-console.log(Drone.maxHeight);
-
-drone.fly()
-drone2.fly();
-
-Drone.getCompany();
+drone.id = "B456"
+console.log(`Drone id: ${drone.id}`);
