@@ -1,18 +1,24 @@
 class Vehicle {
-  constructor() {
-    this.gpsEnabled = true;
+  start() {
+    console.log("starting vehicle...");
+  }
+
+  static getCompanyName(){
+    console.log("My company");
   }
 }
 
-class Drone extends Vehicle {}
-
 class Car extends Vehicle {
-  constructor() {
-    super();
-    this.gpsEnabled = false;
+  start() {
+    super.start();
+    console.log("Starting car...");
+  }
+  static getCompanyName() {
+    super.getCompanyName()
+    console.log("My other company");
   }
 }
 
 let car = new Car("A123");
-
-console.log(car.gpsEnabled);
+car.start();
+Car.getCompanyName();
