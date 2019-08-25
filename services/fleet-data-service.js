@@ -11,12 +11,28 @@ export class FleetDataService {
     for (let data of fleet){
       switch (data.type) {
         case "car":
-          this.cars.push(data);
+          let car = this.loadCar(data);
+          this.cars.push(car);
           break;
         case "drone":
-          this.drones.push(data);
+          let drone = this.loadDrone(data);
+          this.drones.push(drone);
           break;
       }
     }
+  }
+
+  loadCar(car){
+    let newCar = new Car(car.license, car.model, car.latlong);
+    newCar.miles = car.miles;
+    newCar.make = car.make
+    return newCar;
+  }
+
+  loadDrone(drone){
+    let newDrone = new Drone(drone.license, drone.model, drone.latlong);
+    newDrone.airTimeHours = drone.airTimeHours;
+    newDrone.base = drone.base;
+    return newDrone;
   }
 }
