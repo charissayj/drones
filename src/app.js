@@ -1,18 +1,18 @@
-class Drone {
-  constructor(id, name) {
-    this._id = id;
-  }
-
-  get id(){
-    return this._id;
-  }
-
-  set id(value){
-    this._id = value;
+class Vehicle {
+  constructor(licenseNumber){
+    this.licenseNumber = licenseNumber;
   }
 }
 
-let drone = new Drone("A123");
+class Drone extends Vehicle {}
 
-drone.id = "B456"
-console.log(`Drone id: ${drone.id}`);
+class Car extends Vehicle {
+  constructor(licenseNumber) {
+    super(licenseNumber);
+    console.log("car");
+  }
+}
+
+let car = new Car("A123");
+
+console.log(car.licenseNumber)
